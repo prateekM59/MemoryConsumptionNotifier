@@ -7,7 +7,7 @@ criticalMemoryLeftPercentage = 30
 # Function to start RAM consumption status checker and notifier
 # parameters: None
 # returns: None
-def memoryConsumptionStatus():
+def startMemoryConsumptionCheck():
     ram = psutil.virtual_memory()
     while(1):
         totalMemoryConsumptionPercentage = int(ram.percent)
@@ -18,4 +18,10 @@ def memoryConsumptionStatus():
             # Check again after 1 minute
             time.sleep(60)
 
-memoryConsumptionStatus()
+# Function to display current RAM consumption in percentage
+# parameters: None
+# returns: None
+def returnCurrentMemoryUsage():
+	ram = psutil.virtual_memory()
+	totalMemoryConsumptionPercentage = int(ram.percent)
+	print 'Current RAM Usage: ', str(totalMemoryConsumptionPercentage),'%'
